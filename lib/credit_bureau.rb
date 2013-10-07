@@ -4,7 +4,7 @@ require "credit_bureau/version"
 require "credit_bureau/luhn_number"
 require "credit_bureau/card"
 
-
+require "credit_bureau/cards/amex_card"
 
 module CreditBureau
 
