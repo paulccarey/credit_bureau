@@ -6,6 +6,13 @@ Fulfills requirements of http://rubyquiz.com/quiz122.html
 
 ## Installation
 
+Clone locally
+    git clone git@github.com:paulccarey/credit_bureau.git
+
+Install
+
+    rake install
+
 Add this line to your application's Gemfile:
 
     gem 'credit_bureau'
