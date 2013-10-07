@@ -41,6 +41,10 @@ module CreditBureau
       @valid ||= LuhnNumber.new(card_number).valid?
     end
 
+    def type
+      raise NotImplementedError.new("Ensure subclasses of card implement #type")
+    end
+
   end
 
 end

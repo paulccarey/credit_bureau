@@ -97,6 +97,16 @@ module CreditBureau
 
       end
 
+      describe "#type" do
+
+        let(:card) { Card.allocate }
+
+        it "raises a NotImplementedError" do
+          expect { card.type }.to raise_error(NotImplementedError)
+        end
+
+      end
+
     end
 
   end
