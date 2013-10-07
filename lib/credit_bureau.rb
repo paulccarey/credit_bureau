@@ -6,6 +6,7 @@ require "credit_bureau/card"
 
 require "credit_bureau/cards/amex_card"
 require "credit_bureau/cards/discover_card"
+require "credit_bureau/cards/master_card"
 
 module CreditBureau
 
