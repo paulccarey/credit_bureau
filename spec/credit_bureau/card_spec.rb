@@ -22,9 +22,11 @@ module CreditBureau
 
         context "factory instantiation via Card.new" do
 
+          subject { Card.new(card_number) }
+
           context "matching card type is found" do
 
-            subject { Card.new(valid_card_number) }
+            let(:card_number) { valid_card_number }
 
             it { should be_instance_of TestCard }
 
@@ -32,9 +34,9 @@ module CreditBureau
 
           context "no matching card type is found" do
 
-            it "should raise an UnknownCardType error" do
-              expect { Card.new(unknown_card_type) }.to raise_error(UnknownCardType)
-            end
+            let(:card_number) { unknown_card_type }
+
+            it { should be_instance_of Cards::UnknownCard }
 
           end
 

@@ -28,8 +28,8 @@ module CreditBureau
         klass = subclasses.find do |card_type|
           card_type.matches? card_number
         end
-        raise UnknownCardType if klass.nil?
-        klass.new(card_number)
+
+        (klass || Cards::UnknownCard).new(card_number)
       end
 
       def instantiate_self(card_number)
@@ -41,7 +41,7 @@ module CreditBureau
 
       def iin_for card_number
         range_bound=iin_range.first.to_s.length
-        card_number.to_s[0,range_bound]
+        card_number.to_s[0, range_bound]
       end
 
     end
@@ -61,7 +61,6 @@ module CreditBureau
     def to_s
       "#{type}: #{card_number}       (#{valid? ? "valid" : "invalid"})"
     end
-
 
 
   end
