@@ -22,15 +22,15 @@ Or install it yourself as:
 
 From the command line.
 
-$ card_check
+    $ card_check
 
 This outputs example card info
 
 You can also specify your own numbers, either singular or multi-line
 
-$ card_check 4111111111111111
+    $ card_check 4111111111111111
 
-$ card_check "4111111111111111
+    $ card_check "4111111111111111
               4111111111111
               4012888888881881
               378282246310005
