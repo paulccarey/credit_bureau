@@ -12,7 +12,12 @@ card_numbers = [4111111111111111,
                 9111111111111111
 ]
 
+if ARGV[0]
+  card_numbers = ARGV[0].split
+end
 
 card_numbers.each do |number|
   puts CreditBureau::Card.new(number).to_s
 end
+
+
