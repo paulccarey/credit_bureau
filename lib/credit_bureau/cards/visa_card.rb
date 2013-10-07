@@ -7,7 +7,7 @@ module CreditBureau
       class << self
 
         def iin_range
-          ["41"]
+          ["4"]
         end
 
         def card_lengths
