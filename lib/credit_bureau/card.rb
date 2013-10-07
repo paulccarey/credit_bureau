@@ -37,6 +37,10 @@ module CreditBureau
       @card_number = card_number
     end
 
+    def valid?
+      @valid ||= LuhnNumber.new(card_number).valid?
+    end
+
   end
 
 end

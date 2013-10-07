@@ -5,8 +5,8 @@ module CreditBureau
   describe Card do
 
     let(:valid_card_number) { 4111111111111111 }
-    let(:invalid_card_number) { 4111111111111 }
-    let(:unknown_card_type) { 4111111111111112 }
+    let(:invalid_card_number) { 4417123456789112 }
+    let(:unknown_card_type) { 9111111111111111 }
 
     class TestCard < CreditBureau::Card
       class << self
@@ -78,6 +78,22 @@ module CreditBureau
         subject { TestCard.new(valid_card_number) }
 
         its(:card_number) { should == valid_card_number }
+
+      end
+
+      describe "#valid?" do
+
+        let(:luhn_number_double) { double(LuhnNumber, :valid? => true) }
+        let(:test_card) { TestCard.new(valid_card_number) }
+
+        before(:each) do
+          LuhnNumber.stub(:new).and_return(luhn_number_double)
+          test_card.valid?
+        end
+
+        it "delegates to a LuhnNumber object" do
+          luhn_number_double.should have_received(:valid?)
+        end
 
       end
 
