@@ -2,22 +2,22 @@ module CreditBureau
 
   module Cards
 
-    class AmexCard < CreditBureau::Card
+    class VisaCard < CreditBureau::Card
 
       class << self
 
         def iin_range
-          ["34","37"]
+          ["41"]
         end
 
         def card_lengths
-          [15]
+          [13,16]
         end
 
       end
 
       def type
-        "AMEX"
+        "VISA"
       end
 
     end

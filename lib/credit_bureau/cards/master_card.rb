@@ -10,8 +10,8 @@ module CreditBureau
           (51..55).to_a.collect(&:to_s)
         end
 
-        def card_length
-          16
+        def card_lengths
+          [16]
         end
 
       end

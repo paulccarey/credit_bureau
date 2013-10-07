@@ -10,8 +10,8 @@ module CreditBureau
           ["6011"]
         end
 
-        def card_length
-          16
+        def card_lengths
+          [16]
         end
 
       end

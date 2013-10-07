@@ -16,12 +16,12 @@ module CreditBureau
         raise NotImplementedError.new("Ensure subclasses of card implement .iin_range")
       end
 
-      def card_length
-        raise NotImplementedError.new("Ensure subclasses of card implement .card_length")
+      def card_lengths
+        raise NotImplementedError.new("Ensure subclasses of card implement .card_lengths")
       end
 
       def matches?(card_number)
-        iin_range.include?(iin_for(card_number)) && card_number.to_s.length == card_length
+        iin_range.include?(iin_for(card_number)) && card_lengths.include?(card_number.to_s.length)
       end
 
       private

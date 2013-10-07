@@ -66,7 +66,7 @@ module CreditBureau
 
         before(:each) do
           Card.stub(:iin_range).and_return(["4"])
-          Card.stub(:card_length).and_return(16)
+          Card.stub(:card_lengths).and_return([16])
         end
 
         subject { Card.matches? card_number }
@@ -100,7 +100,7 @@ module CreditBureau
       describe ".card_length" do
 
         it "should raise a NotImplementedError" do
-          expect { Card.card_length }.to raise_error(NotImplementedError)
+          expect { Card.card_lengths }.to raise_error(NotImplementedError)
         end
 
       end
