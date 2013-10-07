@@ -4,8 +4,6 @@ module CreditBureau
 
     attr_reader :card_number
 
-    #IIN_RANGE = ["34","37"]
-
     class << self
 
       def new(card_number)
@@ -59,6 +57,12 @@ module CreditBureau
     def type
       raise NotImplementedError.new("Ensure subclasses of card implement #type")
     end
+
+    def to_s
+      "#{type}: #{card_number}       (#{valid? ? "valid" : "invalid"})"
+    end
+
+
 
   end
 

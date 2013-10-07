@@ -142,6 +142,36 @@ module CreditBureau
 
       end
 
+      describe "#to_s" do
+
+        let(:card) { Card.allocate }
+
+        before(:each) do
+          card.stub(:type).and_return("TestCard")
+          card.stub(:card_number).and_return(valid_card_number)
+          card.stub(:valid?).and_return(valid)
+        end
+
+        subject { card.to_s }
+
+        context "card number is valid" do
+
+          let(:valid) { true }
+
+          it { should == "TestCard: #{valid_card_number}       (valid)" }
+
+        end
+
+        context "card number is NOT valid" do
+
+          let(:valid) { false }
+
+          it { should == "TestCard: #{valid_card_number}       (invalid)" }
+
+        end
+
+      end
+
     end
 
   end
