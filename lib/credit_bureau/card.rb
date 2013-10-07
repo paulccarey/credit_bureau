@@ -4,14 +4,24 @@ module CreditBureau
 
     attr_reader :card_number
 
+    #IIN_RANGE = ["34","37"]
+
     class << self
 
       def new(card_number)
         self == Card ? instantiate_subclass(card_number) : instantiate_self(card_number)
       end
 
+      def iin_range
+        raise NotImplementedError.new("Ensure subclasses of card implement .iin_range")
+      end
+
+      def card_length
+        raise NotImplementedError.new("Ensure subclasses of card implement .card_length")
+      end
+
       def matches?(card_number)
-        raise NotImplementedError.new("Ensure subclasses of card implement .matches?")
+        iin_range.include?(iin_for(card_number)) && card_number.to_s.length == card_length
       end
 
       private
@@ -29,6 +39,11 @@ module CreditBureau
         object = self.allocate
         object.send(:initialize, card_number)
         object
+      end
+
+      def iin_for card_number
+        range_bound=iin_range.first.to_s.length
+        card_number.to_s[0,range_bound]
       end
 
     end

@@ -6,8 +6,12 @@ module CreditBureau
 
       class << self
 
-        def matches?(card_number)
-          ["34","37"].include?(card_number.to_s[0,2]) && card_number.to_s.length == 15
+        def iin_range
+          ["34","37"]
+        end
+
+        def card_length
+          15
         end
 
       end

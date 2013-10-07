@@ -64,8 +64,43 @@ module CreditBureau
 
       describe ".matches?" do
 
+        before(:each) do
+          Card.stub(:iin_range).and_return(["4"])
+          Card.stub(:card_length).and_return(16)
+        end
+
+        subject { Card.matches? card_number }
+
+        context "card number is a match" do
+
+          let(:card_number) { valid_card_number }
+
+          it { should be_true }
+
+        end
+
+        context "card number is not a match" do
+
+          let(:card_number) { unknown_card_type }
+
+          it { should be_false }
+
+        end
+
+      end
+
+      describe ".iin_range" do
+
         it "should raise a NotImplementedError" do
-          expect { Card.matches?(valid_card_number) }.to raise_error(NotImplementedError)
+          expect { Card.iin_range }.to raise_error(NotImplementedError)
+        end
+
+      end
+
+      describe ".card_length" do
+
+        it "should raise a NotImplementedError" do
+          expect { Card.card_length }.to raise_error(NotImplementedError)
         end
 
       end
