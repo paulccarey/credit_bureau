@@ -1,6 +1,8 @@
 # CreditBureau
 
-TODO: Write a gem description
+Checks credit/debit cards for known types and validity.
+
+Fulfills requirements of http://rubyquiz.com/quiz122.html
 
 ## Installation
 
@@ -18,7 +20,24 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+From the command line.
+
+$ card_check
+
+This outputs example card info
+
+You can also specify your own numbers, either singular or multi-line
+
+$ card_check 4111111111111111
+
+$ card_check "4111111111111111
+              4111111111111
+              4012888888881881
+              378282246310005
+              6011111111111117
+              5105105105105100
+              9111111111111111"
+
 
 ## Contributing
 
