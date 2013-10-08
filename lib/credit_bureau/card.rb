@@ -59,7 +59,7 @@ module CreditBureau
     end
 
     def to_s
-      "#{type}: #{card_number}       (#{valid? ? "valid" : "invalid"})"
+      "#{type}: #{card_number}".ljust(29) + "(#{valid? ? "valid" : "invalid"})"
     end
 
 

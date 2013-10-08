@@ -160,7 +160,7 @@ module CreditBureau
 
           let(:valid) { true }
 
-          it { should == "TestCard: #{valid_card_number}       (valid)" }
+          it { should == "TestCard: 4111111111111111   (valid)" }
 
         end
 
@@ -168,7 +168,7 @@ module CreditBureau
 
           let(:valid) { false }
 
-          it { should == "TestCard: #{valid_card_number}       (invalid)" }
+          it { should == "TestCard: 4111111111111111   (invalid)" }
 
         end
 
